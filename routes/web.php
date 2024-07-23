@@ -66,22 +66,22 @@ Route::prefix('prodcuts')->controller(ProductListController::class)->group(funct
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::prefix('/products')->group(function() {
-        Route::get('/', [ProductController::class, 'index'])->name('admin.products.index');
-        Route::post('/store', [ProductController::class, 'store'])->name('admin.products.store');
-        Route::delete('/image/{id}',[ProductController::class,'deleteImage'])->name('admin.products.image.delete');
-        Route::put('/update/{id}',[ProductController::class,'update'])->name('admin.products.update');
-        Route::delete('/delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin.products.delete');
-        Route::delete('/delete_all', [ProductController::class, 'deleteAllProduct'])->name('admin.products.deleteall');
-        Route::get('/search', [ProductController::class, 'search'])->name('admin.products.search');
-    });
-    // Route::get('/products', [ProductController::class, 'index'])->name('admin.products.index');
-    // Route::post('/products/store', [ProductController::class, 'store'])->name('admin.products.store');
-    // Route::delete('/products/image/{id}',[ProductController::class,'deleteImage'])->name('admin.products.image.delete');
-    // Route::put('/products/update/{id}',[ProductController::class,'update'])->name('admin.products.update');
-    // Route::delete('/products/delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin.products.delete');
-    // Route::delete('/products/delete_all', [ProductController::class, 'deleteAllProduct'])->name('admin.products.deleteall');
-    // Route::get('/products/search', [ProductController::class, 'search'])->name('admin.products.search');
+    // Route::prefix('/products')->group(function() {
+    //     Route::get('/', [ProductController::class, 'index'])->name('admin.products.index');
+    //     Route::post('/store', [ProductController::class, 'store'])->name('admin.products.store');
+    //     Route::delete('/image/{id}',[ProductController::class,'deleteImage'])->name('admin.products.image.delete');
+    //     Route::put('/update/{id}',[ProductController::class,'update'])->name('admin.products.update');
+    //     Route::delete('/delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin.products.delete');
+    //     Route::delete('/delete_all', [ProductController::class, 'deleteAllProduct'])->name('admin.products.deleteall');
+    //     Route::get('/search', [ProductController::class, 'search'])->name('admin.products.search');
+    // });
+    Route::get('/products', [ProductController::class, 'index'])->name('admin.products.index');
+    Route::post('products/store', [ProductController::class, 'store'])->name('admin.products.store');
+    Route::delete('products/image/{id}',[ProductController::class,'deleteImage'])->name('admin.products.image.delete');
+    Route::put('products/update/{id}',[ProductController::class,'update'])->name('admin.products.update');
+    Route::delete('products/delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin.products.delete');
+    Route::delete('products/delete_all', [ProductController::class, 'deleteAllProduct'])->name('admin.products.deleteall');
+    Route::get('products/search', [ProductController::class, 'search'])->name('admin.products.search');
 });
 
 require __DIR__.'/auth.php';

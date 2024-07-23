@@ -116,15 +116,13 @@ class ProductController extends Controller
         $searchProducts = request('query');
         $searchBrand= request('brand');
         $searchCategory = request('category');
-        if($searchProducts != null && $searchBrand != null && $searchCategory != null ) {
-            $productsdelete = $this->repoProduct->searchProduct($searchProducts , $searchBrand, $searchCategory);
-        }else {
-            return $this->index();
-        }
+        
+        $productsSearch = $this->repoProduct->searchProduct($searchProducts , $searchBrand, $searchCategory);
+        
         $categories = Category::get();
         $brands = Brand::get();
         return Inertia::render('Admin/Product/Index', [
-            'products' => $productsdelete,
+            'products' => $productsSearch,
             'categories' => $categories,
             'brands' => $brands,
         ]);

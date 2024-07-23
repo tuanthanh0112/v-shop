@@ -6,21 +6,13 @@ import { initFlowbite } from 'flowbite'
 import UserLayout from './Layouts/UserLayout.vue';
 import Hero from './Layouts/Hero.vue';
 import Products from '../User/Components/Products.vue';
-
-
-
  defineProps({
     products:Array
  })
-
- 
 // initialize components based on data attribute selectors
 onMounted(() => {
     initFlowbite();
 })
-
-
-
 </script>
 
 <template>
