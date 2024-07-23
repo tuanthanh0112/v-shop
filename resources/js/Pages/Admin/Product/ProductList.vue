@@ -213,7 +213,7 @@ const searchProducts = ref();
 
 
 // pagination
-const rowsLimit = ref(3)
+const rowsLimit = ref(10)
 const rowsToShow = ref(productLists.slice(0, rowsLimit.value))
 const totalPage = ref(Math.ceil(productLists?.length/rowsLimit.value))
 
@@ -249,7 +249,7 @@ const previousPage = () => {
 };
 </script>
 <template>
-    <section class="p-3 sm:p-5">
+    <section class=" w-auto">
         <!-- dialog for adding product or editing product -->
         <el-dialog v-model="dialogVisible" :title="editMode ? 'Edit product' : 'Add Product'" width="30%"
             :before-close="handleClose">
