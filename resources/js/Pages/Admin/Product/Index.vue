@@ -1,7 +1,6 @@
 <template>
     <AdminLayout>
-
-            <FormPro></FormPro>
+        <FormPro></FormPro>
        <ProductList :products="products"></ProductList>
     </AdminLayout>
 </template>
